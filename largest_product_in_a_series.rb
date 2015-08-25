@@ -20,10 +20,14 @@ class LargestProductInASeries
     new_array = []
     i = 0
     number_of_times.times do 
-      new_array << make_into_array_and_convert_contents_to_i[i..i+LENGTH_OF_SAMPLE_SEQUENCE-1]
+      (new_array << make_into_array_and_convert_contents_to_i[i..i+LENGTH_OF_SAMPLE_SEQUENCE-1]) if array_contains_0?(i)
       i +=1
     end
     new_array
+  end
+
+  def array_contains_0?(i)
+    !make_into_array_and_convert_contents_to_i[i..i+LENGTH_OF_SAMPLE_SEQUENCE-1].include?(0)
   end
 
   def number_of_times
